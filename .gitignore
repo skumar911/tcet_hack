@@ -1,3 +1,6 @@
 
 .DS_Store
 farmers/templates/.DS_Store
+.vscode/settings.json
+.vscode
+env
