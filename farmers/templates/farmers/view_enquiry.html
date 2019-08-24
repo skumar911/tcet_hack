@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>View Enquiry</title>
+  {% load static %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'home' %}">WebSiteName</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'farmer_profile' %}"><span class="glyphicon glyphicon-user"></span> Back to profile</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <h2  class="text-center"style="color:black;">Enquiry</h2>
+  <div class="text-center">
+  <table class="table table-bordered table-hover"  style="color:black;">
+    <thead>
+      <th class="text-center">Sr.No</th>
+
+      <th class="text-center">Title</th>
+      <th class="text-center">Query</th>
+      <th class="text-center">Answer</th>
+      <th class="text-center">Status</th>
+    </thead>
+    <tbody>
+      {% for e in enq %}
+        <tr>
+          <td>
+            {{e.id}}
+          </td>
+
+          <td>
+            {{e.title}}
+          </td>
+          <td>
+            {{e.desc}}
+          </td>
+          <td>
+          {{e.solution}}
+          </td>
+
+              <td>
+            {% if e.status == '0' %}
+
+              Pending
+          {% endif %}
+              {% if e.status == '1' %}
+              Answered
+
+            {% endif %}
+                </td>
+
+
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+</body>
+</html>

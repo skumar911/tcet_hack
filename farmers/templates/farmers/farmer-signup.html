@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script-->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="{% static 'farmers/css/farmer-signup.css' %}">
+<style>
+button {border-radius: 50%;
+	background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+		margin-left: 320px;
+
+}
+</style>
+</head>
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+
+    if(!form.terms.checked) {
+      alert("Please select crop");
+      form.terms.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+	<!-- main -->
+
+	<div class="main-w3layouts wrapper">
+
+		<h1  style="color:black;"> SignUp Form</h1>
+		<button type="button" name="button"><a href="{% url 'home' %}">back</a></button>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'farmer_signup_action' %}" method="post" onsubmit="return checkForm(wheat);" enctype="multipart/form-data">
+					{% csrf_token %}
+          <input class="text" type="text" name="name" placeholder="Name" required="">
+          <input class="text email" type="email" name="email" placeholder="Email" required="">
+          <input class="text " type="number" name="contact" placeholder="Contact no" required="" style="margin-bottom:25px;">
+					<input class="text" type="text" name="username" placeholder="Username" required="" style="margin-bottom:25px;">
+
+					<input class="text" type="password" name="password" placeholder="Password" required="" style="margin-bottom:25px;">
+
+					<input class="text" type="text" name="village" placeholder="Village Name" required="" style="margin-bottom:25px;">
+					<div class="">
+					<label for="">Crops</label>
+					</div>
+					<div style="margin-bottom:25px;">
+					<label class="checkbox-inline" >
+      			<input type="checkbox" name="wheat" value="wheat" required>Wheat
+    			</label>
+
+			</div>
+			<div>
+				<div class="">
+					<label for="">Enter profile picture</label>
+				</div>
+				<input type="file" name="myfile" value=""required>
+			</div>
+					<input type="submit" value="SIGNUP">
+				</form>
+
+			</div>
+		</div>

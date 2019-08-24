@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script-->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="{% static 'farmers/css/farmer-signup.css' %}">
+<style>
+button {border-radius: 50%;
+	background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+		margin-left: 320px;
+
+}
+</style>
+</head>
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+	<!-- main -->
+
+	<div class="main-w3layouts wrapper">
+
+		<h1 style="color:black;"> LOGIN HERE</h1>
+		<button type="button" name="button"><a href="{% url 'home' %}">back</a></button>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'farmer_login_action' %}" method="post">
+          {% csrf_token %}
+          <input class="text" type="text" name="username" placeholder="Username" required="" style="margin-bottom:25px;">
+
+					<input class="text" type="password" name="password" placeholder="Password" required="">
+
+					<input type="submit" value="LOGIN">
+				</form>
+				<p>Don't have an Account? <a href="{% url 'farmer-signup' %}"> SignUp now!</a></p>
+			</div>
+		</div>

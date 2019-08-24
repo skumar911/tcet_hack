@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Yield</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script-->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="{% static 'farmers/css/farmer-signup.css' %}">
+<style>
+button {border-radius: 50%;
+	background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+		margin-left: 320px;
+
+}
+</style>
+</head>
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+	<!-- main -->
+
+	<div class="main-w3layouts wrapper">
+
+		<h1> ADD YIELD</h1>
+		<button type="button" name="button"><a href="{% url 'farmer_profile' %}">back</a></button>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'add_yield_action' %}" method="post">
+          {% csrf_token %}
+          <div style="margin-bottom:20px;">
+          <label for="">Enter month  </label>&nbsp&nbsp
+
+          <select name="monthh">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          </div>
+          <div style="margin-bottom:20px;">
+          <label for="">Enter Year</label>&nbsp&nbsp
+          <select name="yearr">
+
+                      <option value="2018">2018</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+
+          </select>
+          </div>
+					<input class="text" type="text" name="yieldd" placeholder="Enter yield" required="">
+
+					<input type="submit" value="ADD YIELD">
+				</form>
+
+			</div>
+		</div>

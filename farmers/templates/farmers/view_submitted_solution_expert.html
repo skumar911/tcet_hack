@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Experts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script-->
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+<link rel="stylesheet" href="{% static 'farmers/css/farmer-signup.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+button {border-radius: 50%;
+	background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+		margin-left: 320px;
+
+}
+.textarea1{
+  width: 100%;
+height: 3000px;
+}
+.active{
+  color:navy;
+  background-color:white;
+}
+</style>
+</head>
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+	<!-- main -->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'home' %}">WebSiteName</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'farmer_logout' %}"><span class="glyphicon glyphicon-user"></span> logout</a></li>
+
+      </ul>
+    </div>
+  </nav>
+	<div class="main-w3layouts wrapper">
+
+
+		<a href="{% url 'home' %}" style="color:white;" class="btn btn-medium">back</a>
+    <div class="main-agileinfo ">
+
+			     <div class="row" style="height:60px;">
+             <div class="col-sm-6 text-center" style="height:60px;padding-top:20px;">
+               <a href="{% url 'pending_enq_from_solved' %}" style="color:white;" >PENDING ENQUIRY</a>
+             </div>
+
+             <div class="col-sm-6 text-center active" style="height:60px;padding-top:20px;">
+               <a href="#" style="color:black;">SOLVED ENQUIRY</a>
+             </div>
+           </div>
+
+    </div>
+    {% for enquiry in enquiries %}
+		<div class="main-agileinfo ">
+			<div class="agileits-top">
+
+          {% csrf_token %}
+          <label for="" style="color:white;">Farmer Name</label>
+          <input class="text" type="text" name="f_name" placeholder="" required="" style="margin-bottom:25px;" readonly value="{{enquiry.farmer_name}}">
+          <label for="" style="color:white;">Title</label>
+          <input class="text" type="text" name="title" placeholder="Enter title" required="" style="margin-bottom:25px;" readonly value="{{enquiry.title}}">
+          <label for="" style="color:white;">Description</label>
+					<input class="text textarea1" type="text" name="enquiry" placeholder="Enquiry" required="" style="margin-bottom:25px;" readonly value="{{enquiry.desc}}"></textarea>
+          <input class="text textarea1" type="text" name="solution" value="{{enquiry.solution}}" required="" style="height:200px;"></textarea>
+
+
+
+		</div>
+    </div>
+    {% endfor %}

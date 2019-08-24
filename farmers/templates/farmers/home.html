@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <style>
+     .carousel-item.active{
+       height:300px;
+       width:300px;
+     }
+     nav{
+
+       opacity: 0.5;
+       filter: alpha(opacity=50); /* For IE8 and earlier */
+
+     }
+   </style>
+  </head>
+  <body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover; ">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'home' %}">Farmer-Connect</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="{% url 'farmer-signup' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="{% url 'farmer-login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="">
+      <h3 style="color:#192A56;text-align:center;">Farmer Connect: One Stop Solution For Farmers</h3>
+    </div>
+    <div class="" style="text-align:center;">
+      <img  src="{% static 'farmers/images/banner.jpg' %}" />
+    </div>
+    <h2 style="text-align:center;">What we do</h2>
+    <div class="row">
+      <div class="col-sm-7">
+
+        <p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum ummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+      </div>
+      <div class="col-sm-5">
+        <div class="carousel" style="height:300px;">
+          <a class="carousel-item" href="#"><img  src="{% static 'farmers/images/analysis_crop.jpg' %}" /></a>
+          <a class="carousel-item" href="#"><img  src="{% static 'farmers/images/experts.png' %}" /></a>
+          <a class="carousel-item" href="#"><img  src="{% static 'farmers/images/snetwork.jpg' %}" /></a>
+          <a class="carousel-item" href="#"><img  src="{% static 'farmers/images/yieldcli.jpg' %}" /></a>
+          <a class="carousel-item" href="#"><img src="{% static 'farmers/images/yieldgraph.png' %}"></a>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.carousel');
+        var instances = M.Carousel.init(elems, options);
+      });
+
+      // Or with jQuery
+
+      $(document).ready(function(){
+        $('.carousel').carousel();
+      });
+      </script>
+
+
+    </div>
+    <div style="text-align:center;">
+      <h1>Our Services</h1>
+    </div>
+  <div class="row">
+    <div class="col-sm-3" style="text-align:center;">
+      <p><h3>Farmer-Portal</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>Ask Experts</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>Analysis</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>Live Data</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-sm-3" style="text-align:center;">
+      <p><h3>Chat bot</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>messaging</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>predicted yield</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+    <div class="col-sm-3" style="text-align:center;">
+      <p ><h3>Download your data</h3></p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
+    </div>
+
+  </div>
+  <footer style="text-align:center;color:white;background-color:black;">CopyRights@2018</footer>
+  </body>
+</html>

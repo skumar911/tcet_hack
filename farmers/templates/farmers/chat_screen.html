@@ -1,0 +1,43 @@
+{% load static %}
+ <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'farmers/css/chat.css' %}" media="all">
+
+    <title>Chat System</title>
+
+  </head>
+    <div id="container">
+      <body >
+      <div class="welcome-msg" style="text-align:center">
+        Welcome {{username}}(Chat with {{f_username}})
+      </div>
+      <div id="chat_box">
+        <div id="chat">
+
+        </div>
+
+
+          {% for chat in chats %}
+        <div id="chat_data">
+          <span style="color:green;">{{chat.fromm}}</span>:
+          <span style="color:brown;">{{chat.msg}}</span>
+          <span style="float:right;">{{chat.current_time}}</span>
+        </div>
+        {% endfor %}
+
+      </div>
+      <form class="" action="{% url 'on_chat_submit' %}" method="post" >
+        {% csrf_token %}
+        <textarea name="msg" placeholder="enter message"></textarea>
+        <input type="submit" name="submit" value="send it">
+      </form>
+
+
+       <div class="">
+         <a href="{% url 'farmer_profile' %}" >Back</a>
+       </div>
+    </div>
+  </body>
+</html>

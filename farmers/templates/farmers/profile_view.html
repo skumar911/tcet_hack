@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset=utf-8>
+  <title>Profile</title>
+    {% load static %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="{% static 'farmers/css/profile.css' %}">
+</head>
+<body style="background:url('{% static "farmers/images/background.jpg" %}') 100% 0 no-repeat fixed;color:white;height:100%;background-size:cover;">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="{% url 'home' %}">WebSiteName</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'farmer_list' %}"><span class="glyphicon glyphicon-user"></span>Back</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <div class="row" style="text-align:center;" >
+    <div class="col-sm-6" >
+      <img src="{{farmer.pic_url}}" alt="" width="400px;">
+    </div>
+    <div class="col-sm-6" style="PADDING-TOP: 59px; color:#192A56;" >
+      <h5>Name:{{farmer.name}}</h5>
+      <h5>Village:{{farmer.village}}</h5>
+      <h5>Crops:wheat</h5>
+    </div>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-4">
+    <iframe width="400" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/660112/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+    </div>
+    <div class="col-sm-4">
+      <iframe width="400" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/660112/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+    </div>
+    <div class="col-sm-4">
+      <iframe width="400" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/660572/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+    </div>
+  </div>
+
+
+  </div>
+    <div class="row">
+      <div class="col-sm-4">
+      <div class='container'>
+    <div class='card temp'>
+      <div class='inner'>
+        <div class='icon'></div>
+        <div class='title'>
+          <div class='text'>TEMPERATURE</div>
+        </div>
+        <div class='number'>{{temp}}</div>
+        <div class='measure'>CELCIUS</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-4">
+  <div class='container' style=" ">
+    <div class='card energy'>
+      <div class='inner'>
+        <div class='icon'></div>
+        <div class='title'>
+          <div class='text'>Humidity</div>
+        </div>
+        <div class='number'>{{humd}}</div>
+        <div class='measure'>kW/HOUR</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class='container' style="">
+    <div class='card energy'>
+      <div class='inner'>
+        <div class='icon'></div>
+        <div class='title'>
+          <div class='text'>Moisture</div>
+        </div>
+        <div class='number'>{{sm}}</div>
+        <div class='measure'>%</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!--row-->
+<div class="" style="text-align:center;">
+  <h3>Expected Yield for current parameters is : {{yield}}</h3>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+
+<img  src="{% static 'farmers/images/t.jpg' %}" height="400px;" />
+</div>
+<div class="col-sm-6">
+<img  src="{% static 'farmers/images/ym.jpg' %}" />
+</div>
+
+</div>
+
+
+</body>
+</html>
